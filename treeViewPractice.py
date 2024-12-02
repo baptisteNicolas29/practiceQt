@@ -86,7 +86,7 @@ class SearchModel(qtc.QSortFilterProxyModel):
 
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
-        self.setSourceModel(StandardModel())
+        self.setSourceModel(qtg.QStandardItemModel())
         # self.setRecursiveFilteringEnabled(True)
 
     def setFilterByColumn(self, regex: str, column: int):
@@ -105,10 +105,6 @@ class SearchModel(qtc.QSortFilterProxyModel):
                 return True
 
         return False
-
-
-class StandardModel(qtg.QStandardItemModel):
-    ...
 
 
 class MainWidget(qtw.QWidget):

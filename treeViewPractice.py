@@ -15,15 +15,19 @@ class TreeViewPractice(qtw.QTreeView):
                 "name": "character",
                 "type": "assetType",
                 "decendent": [
-                        {
-                            "name": "darthPlaguies",
-                            "type": "char",
-                        },
-                        {
-                            "name": "darthSidious",
-                            "type": "char",
-                        }
-                    ],
+                    {
+                        "name": "darthPlaguies",
+                        "type": "char",
+                    },
+                    {
+                        "name": "darthSidious",
+                        "type": "char",
+                    },
+                    {
+                        "name": "excavationRobot",
+                        "type": "char",
+                    },
+                ],
             },
             {
                 "name": "props",
@@ -35,6 +39,14 @@ class TreeViewPractice(qtw.QTreeView):
                     },
                     {
                         "name": "darthSidiousLightSaber",
+                        "type": "props"
+                    },
+                    {
+                        "name": "spaceShip",
+                        "type": "props"
+                    },
+                    {
+                        "name": "drill",
                         "type": "props"
                     },
                 ],

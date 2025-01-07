@@ -17,7 +17,8 @@ class TreeViewPractice(qtw.QTreeView):
         self.model().setFilterCaseSensitivity(qtc.Qt.CaseInsensitive)
 
         self.setItemDelegateForColumn(2, ItemDelegate())
-        self.setEditTriggers(qtw.QAbstractItemView.AllEditTriggers)
+        self.setEditTriggers(qtw.QAbstractItemView.SelectedClicked)
+        # self.setSelectionMode(qtw.QAbstractItemView.ExtendedSelection)
 
     def feedModel(
             self,
@@ -32,7 +33,10 @@ class TreeViewPractice(qtw.QTreeView):
             row = parent.rowCount()
             items = []
 
-            for column, dt in enumerate(['name', 'type', 'assigned']):
+            for column in range(self.model().sourceModel().columnCount()):
+
+                dt = self.model().headerData(column, qtc.Qt.Horizontal, qtc.Qt.DisplayRole)
+
                 data = content.get(dt)
 
                 if isinstance(data, str):
@@ -43,7 +47,7 @@ class TreeViewPractice(qtw.QTreeView):
                     item.setData(data, qtc.Qt.UserRole)
 
                 else:
-                    item = Item('N/A')
+                    item = Item()
 
                 parent.setChild(row, column, item)
                 items.append(item)
